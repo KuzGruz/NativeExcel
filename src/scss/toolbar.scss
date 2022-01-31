@@ -1,0 +1,17 @@
+@import 'mixins';
+@import 'variables';
+
+.toolbar {
+    height: 45px;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    padding: 7px 25px;
+    display: flex;
+
+    .button {
+        @include button(green);
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+}

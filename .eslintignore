@@ -1,0 +1,8 @@
+/.idea
+/node_modules
+/dist
+/src/assets
+/src/scss
+webpack.config.js
+*.html
+*.ico

@@ -1,0 +1,35 @@
+@import 'fonts';
+@import '~normalize.css';
+@import 'control';
+@import 'table';
+@import 'dashboard';
+@import '404';
+@import 'loader';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
+.excel {
+    position: relative;
+    color: #888;
+    height: 100%;
+    max-width: 100%;
+}

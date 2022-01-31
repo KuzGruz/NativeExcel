@@ -1,0 +1,23 @@
+@import 'mixins';
+@import 'variables';
+
+.formula {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $border-color;
+    .info {
+        font-size: 18px;
+        font-style: italic;
+        text-align: center;
+        border-right: 1px solid $border-color;
+        min-width: $info-cell-width;
+    }
+    input {
+        padding: 4px 8px;
+        width: 100%;
+        height: 100%;
+        color: black;
+        border: none;
+    }
+}

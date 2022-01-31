@@ -1,0 +1,140 @@
+@import 'mixins';
+@import 'variables';
+
+.excel__table {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: $control-height;
+    padding-bottom: 2px;
+
+    .row {
+        display: flex;
+        min-height: 20px;
+        height: $cell-height;
+    }
+
+    .row-info {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: $info-cell-width;
+        height: 100%;
+        border: 1px solid $border-color;
+        background: $info-cell-color;
+        border-top: none;
+
+        .resize {
+            position: absolute;
+            z-index: 10;
+            cursor: row-resize;
+            height: $resize-width;
+            left: -1px;
+            right: -1px;
+            bottom: calc(#{($resize-width + 1) / -2});
+
+            .resize-line {
+                height: 100%;
+                width: 0;
+                &:after {
+                    height: 1px;
+                    width: 100vw;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+
+    .row-data {
+        display: flex;
+
+        .cell {
+            min-width: 40px;
+            width: $data-cell-width;
+            border: 1px solid $border-color;
+            border-top: none;
+            border-left: none;
+            height: 100%;
+
+            &-info {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $info-cell-color;
+                border-color: $border-color;
+                cursor: default;
+
+                .resize {
+                    cursor: col-resize;
+                    width: $resize-width;
+                    top: 0;
+                    bottom: -1px;
+                    right: calc(#{($resize-width + 1) / -2});
+
+                    &-line:after {
+                        height: 100vh;
+                        width: 1px;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+
+            &-data {
+                padding: 5px;
+                border-color: #e2e2e3;
+                white-space: nowrap;
+                color: #111;
+                overflow: hidden;
+
+                &.selected {
+                    border: 1px solid $cell-color;
+                    outline: 1px solid $cell-color;
+                    z-index: 2;
+                }
+
+                &:hover {
+                    border: 1px solid $cell-color;
+                }
+            }
+        }
+    }
+
+    .resize {
+        position: absolute;
+        z-index: 10;
+        background-color: $primary-color-inactive;
+        opacity: 0;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &.active {
+            background-color: $primary-color;
+            opacity: 1;
+
+            .resize-line:after {
+                position: absolute;
+                content: '';
+                display: block;
+                background-color: $primary-color;
+            }
+        }
+
+        &-line {
+            position: relative;
+
+            &:after {
+                position: absolute;
+                content: '';
+                display: none;
+            }
+        }
+    }
+}
